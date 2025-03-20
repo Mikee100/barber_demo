@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Premium<span class="accent">Cuts</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#gallery">Styles</a></li>
+                <li><a href="index.html#book">Book</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bank-payment">
+            <h2>Bank Payment Details</h2>
+            <form id="bankPaymentForm">
+                <label for="bankAccount">Bank Account Number</label>
+                <input type="text" id="bankAccount" placeholder="Enter Bank Account Number" required>
+                
+                <label for="bankName">Bank Name</label>
+                <input type="text" id="bankName" placeholder="Enter Bank Name" required>
+
+                <label for="bankBranch">Bank Branch</label>
+                <input type="text" id="bankBranch" placeholder="Enter Bank Branch" required>
+
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="Enter Amount" required>
+
+                <button type="submit" class="cta-button">Proceed to Pay</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contact-info">
+            <p>📞 0712 345 678</p>
+            <p>📍 South C, Nairobi</p>
+        </div>
+    </footer>
+
+    <script src="bank-payment.js"></script>
+</body>
+</html>

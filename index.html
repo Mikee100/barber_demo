@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Premium Cuts | Book Appointment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Premium<span class="accent">Cuts</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Styles</a></li>
+                <li><a href="#book">Book</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Precision Haircuts & Grooming</h1>
+            <p>Book your perfect style experience</p>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-grid" id="serviceContainer"></div>
+        </section>
+
+        <section id="gallery" class="style-gallery">
+            <h2>Popular Styles</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="undercut.jpg" alt="Undercut Style">
+                    <div class="overlay">Undercut</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="fade.jpg" alt="Skin Fade">
+                    <div class="overlay">Skin Fade</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="conrows.jpg" alt="Conrows">
+                    <div class="overlay">Conrows</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="book" class="booking">
+            <h2>Book Appointment</h2>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-step">
+                    <label for="service">Choose Service</label>
+                    <select id="service" required>
+                        <option value="">Select a service</option>
+                    </select>
+                </div>
+                
+                <div class="form-step">
+                    <label>Reference Style</label>
+                    <div class="upload-container">
+                        <input type="file" id="styleUpload" accept="image/*" hidden>
+                        <label for="styleUpload" class="upload-box">
+                            <span class="upload-text">📷 Upload Style Reference</span>
+                            <span class="upload-subtext">(click/paste image)</span>
+                        </label>
+                        <div id="imagePreview" class="preview-container"></div>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <label for="date">Choose Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-step">
+                    <label>Available Times</label>
+                    <div class="time-slots" id="timeSlots"></div>
+                </div>
+
+                <div class="form-step">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <input type="radio" id="mpesa" name="paymentMethod" value="mpesa" checked>
+                        <label for="mpesa">M-Pesa</label>
+                        
+                        <input type="radio" id="stripe" name="paymentMethod" value="stripe">
+                        <label for="stripe">Credit/Debit Card</label>
+                    </div>
+                </div>
+                
+                <!-- M-Pesa Phone Number -->
+                <div class="form-step payment-field" id="mpesaField">
+                    <label for="phoneNumber">Phone Number (M-Pesa)</label>
+                    <input type="text" id="phoneNumber" placeholder="07XXXXXXXX">
+                </div>
+                
+                <!-- Stripe Card Details -->
+                <div class="form-step payment-field" id="stripeField" style="display: none;">
+                    <div id="cardElement" class="stripe-card"></div>
+                    <div id="cardErrors" role="alert" class="stripe-errors"></div>
+                </div>
+
+                <button type="submit" class="cta-button">Confirm Booking</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contact-info">
+            <p>📞 0712 345 678</p>
+            <p>📍 South C, Nairobi</p>
+        </div>
+        <div class="social-links">
+            <!-- Add social icons here -->
+        </div>
+    </footer>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Booking Confirmed! 🎉</h3>
+            <p id="confirmDetails"></p>
+        </div>
+
+    </div>
+
+    <!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="success-modal">
+    <div class="success-content">
+        <h3>Booking Successful! 🎉</h3>
+        <p>Your appointment has been confirmed. We look forward to seeing you!</p>
+        <button onclick="closeSuccessModal()">Close</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
